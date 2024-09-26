@@ -1,0 +1,55 @@
+
+[basics]
+
+	[basics.other]
+		sound_effects = true
+		developer_mode = false
+		sounds_volume = 1.0
+		also_modify_normal_guild_messages = true
+		"also_modify_join/leave_guild_messages" = true
+
+	[basics.discord]
+		image_representation = "&a&l[Image]"
+		discord_message_color = 15
+		discord_name_color = 14
+		discord_representation = "&9&l(Discord)"
+
+	[basics.bot]
+		bot_name = "&b&l(Bot)"
+		bridge_bot_ign = "NqekMyBeloved"
+		bridge_bot_rank = "Admin"
+		"new_name!" = "&2Pridge >"
+
+	[basics.timestamps]
+		timestamps = true
+		timezone_offset = 0
+		12_hour_mode = false
+
+	[basics.everything]
+		"&8&lfunny_volume" = 1.0
+		bot_name = "&b&l(Bot)"
+		timestamps = true
+		discord_name_color = 14
+		timezone_offset = -3
+		toggle_formatter = true
+		bridge_bot_ign = "NqekMyBeloved"
+		bridge_bot_rank = "[Admin]"
+		"new_name!" = "&2Pridge >"
+		12_hour_mode = false
+		"&8funny_features" = true
+		developer_mode = false
+		also_modify_normal_guild_messages = true
+		image_representation = "&a&l[Image]"
+		discord_message_color = 15
+		"&4&lexperimental_features" = true
+		local_help = false
+		"also_modify_join/leave_guild_messages" = true
+		bot_prefix = "_"
+		discord_representation = "&9&l(Discord)"
+
+	[basics."!important!"]
+		toggle_formatter = true
+
+	[basics."!_important_!"]
+		toggle_formatter = true
+

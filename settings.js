@@ -1,0 +1,183 @@
+import {
+    @ButtonProperty,
+    @CheckboxProperty,
+    Color,
+    @NumberProperty,
+    @ColorProperty,
+    @SliderProperty,
+    @PercentSliderProperty,
+    @SelectorProperty,
+    @SwitchProperty,
+    @TextProperty,
+    @Vigilant,
+} from 'Vigilance/index';
+
+// The only parameter that is required is the first, which should be the Module name.
+// The other 2 parameters are optional.
+// The 2nd parameter is the title of the settings window, seen in the top left above the
+// category list.
+// The 3rd parameter is an object that determines the sorting order of the categories.
+
+@Vigilant('Pridge', 'Pridge Settings', {
+    getCategoryComparator: () => (a, b) => {
+        // By default, categories, subcategories, and properties are sorted alphabetically.
+        // You can override this behavior by returning a negative number if a should be sorted before b,
+        // or a positive number if b should be sorted before a.
+
+        // In this case, we can put Not general to be above general.
+        const categories = ['Basics'];
+
+        return categories.indexOf(a.name) - categories.indexOf(b.name);
+    }
+})
+class Settings {
+
+    @SwitchProperty({
+        name: 'Toggle Formatter',
+        description: 'Enable the bridge bot formatter',
+        category: 'Basics',
+        subcategory: '! Important !',
+    })
+    enabled = true;
+
+    @TextProperty({
+        name: 'Bridge bot IGN',
+        description: "The bot's IGN",
+        category: 'Basics',
+        subcategory: 'Bot',
+    })
+    botIGN = 'NqekMyBeloved';
+
+    @TextProperty({
+        name: 'Bridge bot Rank',
+        description: "The bot's Guild Rank",
+        category: 'Basics',
+        subcategory: 'Bot',
+    })
+    botRank = 'Admin';
+
+    @TextProperty({
+        name: 'New name!',
+        description: "The new way the chat will be shown as",
+        category: 'Basics',
+        subcategory: 'Bot',
+    })
+    newName = '&2Pridge >';
+
+    @TextProperty({
+        name: 'Bot Name',
+        description: "The name for the bot whenever it is his job to do something",
+        category: 'Basics',
+        subcategory: 'Bot',
+    })
+    botName = '&b&l(Bot)';
+
+    @SelectorProperty({
+        name: 'Discord name color',
+        description: "The color for discord users it is a discord message",
+        category: 'Basics',
+        subcategory: 'Discord',
+        options: ['Black', 'Dark Blue', 'Dark Green', 'Cyan', 'Dark Red', 'Purple', 'Orange', 'Light Gray', 'Dark Gray', 'Light Blue', 'Light Green', 'Bright Blue', "Light Red", "Pink", "Yellow", "White"]
+    })
+    colorSelected = 14;
+
+    @SelectorProperty({
+        name: 'Discord message color',
+        description: "The color for discord messages",
+        category: 'Basics',
+        subcategory: 'Discord',
+        options: ['Black', 'Dark Blue', 'Dark Green', 'Cyan', 'Dark Red', 'Purple', 'Orange', 'Light Gray', 'Dark Gray', 'Light Blue', 'Light Green', 'Bright Blue', "Light Red", "Pink", "Yellow", "White"]
+    })
+    colorSelectedChat = 15;
+
+    @TextProperty({
+        name: 'Discord representation',
+        description: "The name for discord whenever it is a discord message",
+        category: 'Basics',
+        subcategory: 'Discord',
+    })
+    discordName = '&9&l(Discord)';
+
+    @TextProperty({
+        name: 'Image Representation',
+        description: "The text for an image link whenever it is sent",
+        category: 'Basics',
+        subcategory: 'Discord',
+    })
+    imageName = '&a&l[Image]';
+
+    @SwitchProperty({
+        name: 'Also modify normal guild messages',
+        description: 'Makes it so normal guild messages also follow the chat formatting',
+        category: 'Basics',
+        subcategory: 'Other',
+    })
+    guild = true;
+
+    @SwitchProperty({
+        name: 'Also modify join/leave guild messages',
+        description: 'Makes it so normal guild join/leave messages also follow the chat formatting',
+        category: 'Basics',
+        subcategory: 'Other',
+    })
+    joinleave = true;
+
+    @SwitchProperty({
+        name: 'Sound Effects',
+        description: 'Sound Effects on *sound* /pridgesounds or /shridgesounds to see sound effects',
+        category: 'Basics',
+        subcategory: 'Other',
+    })
+    funni = true;
+
+    @PercentSliderProperty({
+        name: "Sounds Volume",
+        description: "How loud the sound effects are",
+        category: 'Basics',
+        subcategory: "Other"
+    })
+    volume = 1;
+
+    @SwitchProperty({
+        name: 'Timestamps',
+        description: 'Turn on timestamps on pridge messages, just like patcher',
+        category: 'Basics',
+        subcategory: 'Timestamps',
+    })
+    timestamp = true;
+
+    @SwitchProperty({
+        name: '12 Hour mode',
+        description: 'Timestamps will use the 12h AM/PM format',
+        category: 'Basics',
+        subcategory: 'Timestamps',
+    })
+    timestamp12hour = false;
+
+    @SliderProperty({
+        name: "Timezone offset",
+        description: "How offset time is hourly",
+        category: 'Basics',
+        subcategory: "Timestamps",
+        min: -12,
+        max: 12
+    })
+    timeOffset = 0;
+
+    @SwitchProperty({
+        name: 'Developer Mode',
+        description: 'Just gives me some extra data that helps',
+        category: 'Basics',
+        subcategory: 'Other',
+    })
+    devMode = false;
+
+    constructor() {
+        this.initialize(this);
+        this.addDependency('12 Hour mode', 'Timestamps');
+        this.addDependency('Timezone offset', 'Timestamps');
+        this.addDependency('Sounds Volume', 'Sound Effects');
+    }
+}
+
+export default new Settings();
