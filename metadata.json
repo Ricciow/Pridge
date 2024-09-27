@@ -4,7 +4,6 @@
   "entry": "index.js",
   "version": "0.1.0",
   "requires": [
-    "Vigilance",
-    "requestV2"
+    "Vigilance"
   ]
 }

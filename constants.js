@@ -11,7 +11,7 @@ export const functions = {
     bestiary2: bestiary2
 };
 
-export const jsonLink = "https://api.github.com/repos/Ricciow/Pridge/contents/formating.json"
+export const jsonLink = "https://raw.githubusercontent.com/Ricciow/Pridge/master/formating.json"
 
 export const Base64 = Java.type("java.util.Base64")
 

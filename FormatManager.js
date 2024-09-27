@@ -7,7 +7,6 @@ export class FormatManager {
     constructor() {
         this.version = "0.1.0"
         this.formats = {}
-        this.readFormats()
     }
 
     readFormats() {
@@ -18,13 +17,15 @@ export class FormatManager {
 
     updateData() {
         ChatLib.chat("&6&lUpdating formatter data...")
-        request(jsonLink).then((data) => {
-            data = JSON.parse(data)
-            data = new JavaString(Base64.getDecoder().decode(data.content.replace(/\n/g, "")), "UTF-8")
+        try {
+            const data = FileLib.getUrlContent(jsonLink)
             FileLib.write("Pridge", "formating.json", data)
             this.readFormats()
             ChatLib.chat("&a&lDone updating!")
-        })
+        }
+        catch(error) {
+            ChatLib.chat("&c&lError getting json data update Chattriggers.")
+        }
     }
 
     processFormat(message) {
