@@ -89,7 +89,6 @@ export class ChatManager {
         checkForSounds(message)
         if(settings.guild) {
             cancel(event)
-            console.log(message)
             this._sendMessage(ChatLib.getChatMessage(event, true).replace("&2Guild >", settings.newName).replace(/&r$/, ""))
         }
     }
