@@ -193,6 +193,7 @@ const COLORS = ["&0","&1","&2","&3","&4","&5","&6","&7","&8","&9","&a","&b","&c"
 export function discord(message, matcher) {
     user = matcher[1]
     message = matcher[2]
+    checkForSounds(message)
     if(user.includes(":")) {
         user = user.split(": ");
         userName = user.shift();
