@@ -29,6 +29,7 @@ register('command', (...sound) => {
 }).setName("pridgesounds").setAliases("shridgesounds")
 
 const chatManager = new ChatManager()
+chatManager.formatManager.updateData()
 
 register('command', () => {
     chatManager.formatManager.updateData()
