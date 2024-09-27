@@ -1,4 +1,4 @@
-ChatLib.chat("&5[&9&lFormatter&5] &6&lLoading!");
+ChatLib.chat("&5[&9&lBridge&5] &6&lLoading!");
 import settings from "./settings";
 import { ChatManager } from "./ChatManager";
 import { sounds } from "./functions";
@@ -34,8 +34,4 @@ register('command', () => {
     chatManager.formatManager.updateData()
 }).setName("updatepridgedata")
 
-register("gameLoad", () => {
-    console.log("loaded no way")
-})
-
-ChatLib.chat("&5[&9&lFormatter&5] &2&lLoaded!\n&5[&9&lFormatter&5] &fDo /pridge or /shridge to open settings");
+ChatLib.chat("&5[&9&lBridge&5] &2&lLoaded!\n&5[&9&lBridge&5] &fDo /pridge or /shridge to open settings");

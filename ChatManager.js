@@ -8,6 +8,7 @@ export class ChatManager {
         this.formatManager = new FormatManager()
         this.splitChar = "➩"
         this.incompleteMessage = ""
+        this.placeHolderMessage = undefined
         // * Guild chat Messages
         register("chat", (user, rank, message, event) => {
             message = message.slice(1)
@@ -19,15 +20,22 @@ export class ChatManager {
                     if(message.startsWith(this.splitChar)) {
                         if(message.endsWith(this.splitChar)) {
                             this.incompleteMessage = this.incompleteMessage + message.slice(1, message.length-2)
+                            let newMessage = new Message(this.placeHolderMessage.getFormattedText() + "&6&l.")
+                            this.placeHolderMessage.edit(newMessage)
+                            this.placeHolderMessage = newMessage
                             return
                         }
                         else {
                             message = this.incompleteMessage + message.slice(1, message.length-1)
                             this.incompleteMessage = ""
+                            ChatLib.deleteChat(this.placeHolderMessage)
+                            this.placeHolderMessage = undefined
                         }
                     }
                     else if(message.endsWith(this.splitChar)) {
                         this.incompleteMessage = message.slice(0, message.length-2)
+                        this.placeHolderMessage = new Message(`${settings.newName} ${settings.botName} &6&lLoading Msg`)
+                        ChatLib.chat(this.placeHolderMessage)
                         return
                     }
                     else if(this.incompleteMessage != "") {
