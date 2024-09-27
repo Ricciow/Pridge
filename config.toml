@@ -60,6 +60,7 @@
 		developer_mode = false
 		sounds_volume = 1.0
 		also_modify_normal_guild_messages = true
+		auto_update_formatings_on_load = true
 		"also_modify_join/leave_guild_messages" = true
 
 	[pridge.discord]

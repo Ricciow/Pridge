@@ -1,7 +1,6 @@
-import { Base64, functions, JavaString, jsonLink } from "./constants"
+import { functions, jsonLink } from "./constants"
 import { replacePlaceholders } from "./functions"
 import settings from "./settings"
-import request from "../requestV2"
 
 export class FormatManager {
     constructor() {
