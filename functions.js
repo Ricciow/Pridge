@@ -78,7 +78,6 @@ const bestiaryRegex = /(\w[\w\s]* \d+\/\d+(?: \([\d.]+\))? )/g
 const beDataRegex = /(\w[\w\s]*) (\d+)\/(\d+)(?: \(([\d.]+)\))?/
 
 export function bestiary(message, matcher) {
-    // ${bestiary} bestiary for ${user} (${profile}) k/d (kdr): ${message}
     let bestiary = matcher[1]
     let user = matcher[2]
     let profile = matcher[3]

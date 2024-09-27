@@ -25,7 +25,7 @@ import {
         // or a positive number if b should be sorted before a.
 
         // In this case, we can put Not general to be above general.
-        const categories = ['Basics'];
+        const categories = ['Pridge'];
 
         return categories.indexOf(a.name) - categories.indexOf(b.name);
     }
@@ -35,7 +35,7 @@ class Settings {
     @SwitchProperty({
         name: 'Toggle Formatter',
         description: 'Enable the bridge bot formatter',
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: '! Important !',
     })
     enabled = true;
@@ -43,7 +43,7 @@ class Settings {
     @TextProperty({
         name: 'Bridge bot IGN',
         description: "The bot's IGN",
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Bot',
     })
     botIGN = 'NqekMyBeloved';
@@ -51,7 +51,7 @@ class Settings {
     @TextProperty({
         name: 'Bridge bot Rank',
         description: "The bot's Guild Rank",
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Bot',
     })
     botRank = 'Admin';
@@ -59,7 +59,7 @@ class Settings {
     @TextProperty({
         name: 'New name!',
         description: "The new way the chat will be shown as",
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Bot',
     })
     newName = '&2Pridge >';
@@ -67,7 +67,7 @@ class Settings {
     @TextProperty({
         name: 'Bot Name',
         description: "The name for the bot whenever it is his job to do something",
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Bot',
     })
     botName = '&b&l(Bot)';
@@ -75,7 +75,7 @@ class Settings {
     @SelectorProperty({
         name: 'Discord name color',
         description: "The color for discord users it is a discord message",
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Discord',
         options: ['Black', 'Dark Blue', 'Dark Green', 'Cyan', 'Dark Red', 'Purple', 'Orange', 'Light Gray', 'Dark Gray', 'Light Blue', 'Light Green', 'Bright Blue', "Light Red", "Pink", "Yellow", "White"]
     })
@@ -84,7 +84,7 @@ class Settings {
     @SelectorProperty({
         name: 'Discord message color',
         description: "The color for discord messages",
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Discord',
         options: ['Black', 'Dark Blue', 'Dark Green', 'Cyan', 'Dark Red', 'Purple', 'Orange', 'Light Gray', 'Dark Gray', 'Light Blue', 'Light Green', 'Bright Blue', "Light Red", "Pink", "Yellow", "White"]
     })
@@ -93,7 +93,7 @@ class Settings {
     @TextProperty({
         name: 'Discord representation',
         description: "The name for discord whenever it is a discord message",
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Discord',
     })
     discordName = '&9&l(Discord)';
@@ -101,7 +101,7 @@ class Settings {
     @TextProperty({
         name: 'Image Representation',
         description: "The text for an image link whenever it is sent",
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Discord',
     })
     imageName = '&a&l[Image]';
@@ -109,7 +109,7 @@ class Settings {
     @SwitchProperty({
         name: 'Also modify normal guild messages',
         description: 'Makes it so normal guild messages also follow the chat formatting',
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Other',
     })
     guild = true;
@@ -117,7 +117,7 @@ class Settings {
     @SwitchProperty({
         name: 'Also modify join/leave guild messages',
         description: 'Makes it so normal guild join/leave messages also follow the chat formatting',
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Other',
     })
     joinleave = true;
@@ -125,7 +125,7 @@ class Settings {
     @SwitchProperty({
         name: 'Sound Effects',
         description: 'Sound Effects on *sound* /pridgesounds or /shridgesounds to see sound effects',
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Other',
     })
     funni = true;
@@ -133,7 +133,7 @@ class Settings {
     @PercentSliderProperty({
         name: "Sounds Volume",
         description: "How loud the sound effects are",
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: "Other"
     })
     volume = 1;
@@ -141,7 +141,7 @@ class Settings {
     @SwitchProperty({
         name: 'Timestamps',
         description: 'Turn on timestamps on pridge messages, just like patcher',
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Timestamps',
     })
     timestamp = true;
@@ -149,7 +149,7 @@ class Settings {
     @SwitchProperty({
         name: '12 Hour mode',
         description: 'Timestamps will use the 12h AM/PM format',
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Timestamps',
     })
     timestamp12hour = false;
@@ -157,7 +157,7 @@ class Settings {
     @SliderProperty({
         name: "Timezone offset",
         description: "How offset time is hourly",
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: "Timestamps",
         min: -12,
         max: 12
@@ -167,7 +167,7 @@ class Settings {
     @SwitchProperty({
         name: 'Developer Mode',
         description: 'Just gives me some extra data that helps',
-        category: 'Basics',
+        category: 'Pridge',
         subcategory: 'Other',
     })
     devMode = false;

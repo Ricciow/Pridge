@@ -53,3 +53,32 @@
 	[basics."!_important_!"]
 		toggle_formatter = true
 
+[pridge]
+
+	[pridge.other]
+		sound_effects = true
+		developer_mode = false
+		sounds_volume = 1.0
+		also_modify_normal_guild_messages = true
+		"also_modify_join/leave_guild_messages" = true
+
+	[pridge.discord]
+		image_representation = "&a&l[Image]"
+		discord_message_color = 15
+		discord_name_color = 14
+		discord_representation = "&9&l(Discord)"
+
+	[pridge.bot]
+		bot_name = "&b&l(Bot)"
+		bridge_bot_ign = "NqekMyBeloved"
+		bridge_bot_rank = "Admin"
+		"new_name!" = "&2Pridge >"
+
+	[pridge.timestamps]
+		timestamps = true
+		timezone_offset = 0
+		12_hour_mode = false
+
+	[pridge."!_important_!"]
+		toggle_formatter = true
+

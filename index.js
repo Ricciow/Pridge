@@ -31,7 +31,11 @@ register('command', (...sound) => {
 const chatManager = new ChatManager()
 
 register('command', () => {
-    chatManager.formatManager.readFormats()
+    chatManager.formatManager.updateData()
 }).setName("updatepridgedata")
+
+register("gameLoad", () => {
+    console.log("loaded no way")
+})
 
 ChatLib.chat("&5[&9&lFormatter&5] &2&lLoaded!\n&5[&9&lFormatter&5] &fDo /pridge or /shridge to open settings");

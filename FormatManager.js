@@ -1,4 +1,4 @@
-import { functions } from "./constants"
+import { Base64, functions, JavaString, jsonLink } from "./constants"
 import { replacePlaceholders } from "./functions"
 import settings from "./settings"
 import request from "../requestV2"
@@ -11,13 +11,20 @@ export class FormatManager {
     }
 
     readFormats() {
-        const data = JSON.parse(FileLib.read("pridge", "formating.json"))
+        const data = JSON.parse(FileLib.read("Pridge", "formating.json"))
         this.formats = data.formats
         this.version = data.version
     }
 
     updateData() {
-
+        ChatLib.chat("&6&lUpdating formatter data...")
+        request(jsonLink).then((data) => {
+            data = JSON.parse(data)
+            data = new JavaString(Base64.getDecoder().decode(data.content.replace(/\n/g, "")), "UTF-8")
+            FileLib.write("Pridge", "formating.json", data)
+            this.readFormats()
+            ChatLib.chat("&a&lDone updating!")
+        })
     }
 
     processFormat(message) {
