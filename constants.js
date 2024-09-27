@@ -12,7 +12,3 @@ export const functions = {
 };
 
 export const jsonLink = "https://raw.githubusercontent.com/Ricciow/Pridge/master/formating.json"
-
-export const Base64 = Java.type("java.util.Base64")
-
-export const JavaString = Java.type("java.lang.String")

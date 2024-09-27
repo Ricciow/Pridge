@@ -172,6 +172,14 @@ class Settings {
     })
     devMode = false;
 
+    @SwitchProperty({
+        name: 'Auto update formatings on load',
+        description: 'Update automatically the formatting once module loads',
+        category: 'Pridge',
+        subcategory: 'Other',
+    })
+    autoUpdate = true;
+
     constructor() {
         this.initialize(this);
         this.addDependency('12 Hour mode', 'Timestamps');
