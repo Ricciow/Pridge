@@ -100,7 +100,7 @@ export class FormatManager {
             }
         }
         catch(error) {
-            console.error(`[Pridge] RegExp Error - ${format.trigger}\n${error}`)
+            console.error(`[Pridge] Special Error - ${format.trigger}\n${error}`)
             return
         }
     }

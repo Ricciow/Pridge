@@ -169,13 +169,19 @@
         },
         {
             "type":"regex",
+            "trigger":"^Trophy fish for (.+) \\((.+)\\): Total: (\\d+) \\(w\\/o Obf 1\\) \\| Bronze: (\\d+)\\/18 \\| Silver: (\\d+)\\/18 \\| Gold: (\\d+)\\/18 \\| Diamond: (\\d+)\\/18$",
+            "finalFormat":"&6&lTrophy fish &f&l- ${1} (${2})\n &e&lTotal: &f${3}\n &8&lBronze&f: ${4}/18\n &7&lSilver&f: ${5}/18\n &6&lGold&f: ${6}/18\n &b&lDiamond&f: ${7}/18",
+            "groupFormating": {}
+        },
+        {
+            "type":"regex",
             "trigger":"^Trophy fish for (.+) \\((.+)\\): Total: (\\d+) \\| Bronze: (\\d+)\\/18 \\| Silver: (\\d+)\\/18 \\| Gold: (\\d+)\\/18 \\| Diamond: (\\d+)\\/18$",
             "finalFormat":"&6&lTrophy fish &f&l- ${1} (${2})\n &e&lTotal: &f${3}\n &8&lBronze&f: ${4}/18\n &7&lSilver&f: ${5}/18\n &6&lGold&f: ${6}/18\n &b&lDiamond&f: ${7}/18",
             "groupFormating": {}
         },
         {
             "type":"regex",
-            "trigger":"^(.+) caught for (.+) \\((.+)\\): Total .+: (\\d+) \\| Bronze: (\\d+) \\| Silver: ((\\d+)) \\| Gold: (\\d+) \\| Diamond: (\\d+)$",
+            "trigger":"^(.+) caught for (.+) \\((.+)\\): Total .+: (\\d+) \\| Bronze: (\\d+) \\| Silver: (\\d+) \\| Gold: (\\d+) \\| Diamond: (\\d+)$",
             "finalFormat":"${1} &f&l- ${2} (${3})\n &e&lTotal: &f${4}\n &8&lBronze&f: ${5}\n &7&lSilver&f: ${6}\n &6&lGold&f: ${7}\n &b&lDiamond&f: ${8}",
             "groupFormating": {
                 "1": {

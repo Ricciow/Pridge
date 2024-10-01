@@ -34,6 +34,10 @@ else chatManager.formatManager.readFormats();
 
 register('command', () => {
     chatManager.formatManager.updateData()
-}).setName("updatepridgedata")
+}).setName("updatepridgedata").setAliases("updateshridgedata")
+
+register('command', () => {
+    chatManager.formatManager.readFormats()
+}).setName("loadpridgedata").setAliases("loadshridgedata")
 
 ChatLib.chat("&5[&9&lBridge&5] &2&lLoaded!\n&5[&9&lBridge&5] &fDo /pridge or /shridge to open settings");
