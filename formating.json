@@ -175,7 +175,7 @@
         },
         {
             "type":"regex",
-            "trigger":"^(.+) caught for (.+) \\((.+)\\): Total .+: (\\d+) \\| Bronze: (\\d+) \\| Silver: ((\\d+)) \\| Gold: (\\d+) \\| Diamond: (\\d+)$",
+            "trigger":"^(.+) caught for (.+) \\((.+)\\): Total .+: (\\d+) \\| Bronze: (\\d+) \\| Silver: (\\d+) \\| Gold: (\\d+) \\| Diamond: (\\d+)$",
             "finalFormat":"${1} &f&l- ${2} (${3})\n &e&lTotal: &f${4}\n &8&lBronze&f: ${5}\n &7&lSilver&f: ${6}\n &6&lGold&f: ${7}\n &b&lDiamond&f: ${8}",
             "groupFormating": {
                 "1": {
