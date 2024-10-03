@@ -208,7 +208,6 @@ const linkRegex = /\((l\$[^)]*)\)/
 
 function formatLinks(message, userName) {
     if(settings.enableSTuF) {
-        console.log(message)
         const Bot = `${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: `
         if(message.startsWith(" ")) message = message.slice(1)
         const firstLink = message.startsWith("[LINK]")
@@ -228,7 +227,6 @@ function formatLinks(message, userName) {
             else {
                 result = new Message(Bot, ...mergeAlternating(message, links))
             }
-            console.log(result)
             return result
         }
     }
@@ -247,7 +245,6 @@ export function discord(message, matcher) {
     }
     checkForSounds(message)
     const linkMessage = formatLinks(message, user)
-    console.log(linkMessage)
     if(linkMessage) return linkMessage
     return `(bypass)${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: ${message}`;
     
