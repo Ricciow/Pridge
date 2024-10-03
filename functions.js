@@ -1,4 +1,5 @@
 import settings from "./settings";
+import STuF from "../STuFLib"
 
 export function replacePlaceholders(text, arr) {
     return text.replace(/\$\{(\d+)\}/g, (match, index) => {
@@ -186,14 +187,56 @@ export function checkForSounds(message) {
     }
 }
 
-//TODO: Whenever we get image sending working...
+function mergeAlternating(arr1, arr2) {
+    const result = [];
+    const maxLength = Math.max(arr1.length, arr2.length); 
+    for (let i = 0; i < maxLength; i++) {
+      if (i < arr1.length) {
+        result.push(arr1[i]);
+      }
+      if (i < arr2.length) {
+        result.push(arr2[i]);
+      }
+    }
+    return result;
+  }
 
 const COLORS = ["&0","&1","&2","&3","&4","&5","&6","&7","&8","&9","&a","&b","&c","&d","&e","&f"]
+
+const fullLinkRegex = /\[LINK\]\(l\$[^)]+\)/g
+const linkRegex = /\((l\$[^)]*)\)/
+
+function formatLinks(message, userName) {
+    if(settings.enableSTuF) {
+        console.log(message)
+        const Bot = `${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: `
+        if(message.startsWith(" ")) message = message.slice(1)
+        const firstLink = message.startsWith("[LINK]")
+        const matcher = message.match(fullLinkRegex)
+        if(matcher) {
+            message = message.split(fullLinkRegex)
+            links = matcher.map((value) => {
+                let link = value.match(linkRegex)[1]
+                if(!link) return
+                link = STuF.decode(link)
+                return new TextComponent(settings.linkName).setClick('open_url', link).setHover('show_text', link)
+            }).filter(Boolean)
+            let result = undefined
+            if(firstLink) {
+                result = new Message(Bot, ...mergeAlternating(links, message))
+            }
+            else {
+                result = new Message(Bot, ...mergeAlternating(message, links))
+            }
+            console.log(result)
+            return result
+        }
+    }
+}
 
 export function discord(message, matcher) {
     user = matcher[1]
     message = matcher[2]
-    checkForSounds(message)
     if(user.includes(":")) {
         user = user.split(": ");
         userName = user.shift();
@@ -202,6 +245,11 @@ export function discord(message, matcher) {
     else {
         userName = user;
     }
+    checkForSounds(message)
+    const linkMessage = formatLinks(message, user)
+    console.log(linkMessage)
+    if(linkMessage) return linkMessage
     return `(bypass)${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: ${message}`;
+    
 }
 

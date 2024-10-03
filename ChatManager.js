@@ -167,6 +167,9 @@ export class ChatManager {
         if(message?.startsWith("(bypass)")){
             this._sendMessage(message.replace("(bypass)", ""))
         }
+        else if(typeof message != 'string') {
+            ChatLib.chat(message)
+        }
         else {
             this._sendMessage(`${settings.newName} ${settings.botName} &f${message}`)
         }

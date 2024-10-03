@@ -98,13 +98,21 @@ class Settings {
     })
     discordName = '&9&l(Discord)';
 
+    @SwitchProperty({
+        name: 'Enable link formatting',
+        description: 'Choose whether or not you want links to be formatted\nTo excerce your right to not see links!',
+        category: 'Pridge',
+        subcategory: 'Other',
+    })
+    enableSTuF = true;
+    
     @TextProperty({
-        name: 'Image Representation',
-        description: "The text for an image link whenever it is sent",
+        name: 'Link Representation',
+        description: "The text for a link whenever it is sent",
         category: 'Pridge',
         subcategory: 'Discord',
     })
-    imageName = '&a&l[Image]';
+    linkName = '&a&l[Link]';
 
     @SwitchProperty({
         name: 'Also modify normal guild messages',

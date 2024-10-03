@@ -3,16 +3,18 @@
 
 	[pridge.other]
 		sound_effects = true
-		developer_mode = false
+		developer_mode = true
 		sounds_volume = 1.0
 		also_modify_normal_guild_messages = true
 		auto_update_formatings_on_load = true
+		enable_link_formatting = true
 		"also_modify_join/leave_guild_messages" = true
 
 	[pridge.discord]
 		image_representation = "&a&l[Image]"
 		discord_message_color = 15
 		discord_name_color = 14
+		link_representation = "&a&l[Link]"
 		discord_representation = "&9&l(Discord)"
 
 	[pridge.bot]
