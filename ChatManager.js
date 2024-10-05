@@ -19,21 +19,21 @@ export class ChatManager {
                     // * Splice split messages
                     if(message.startsWith(this.splitChar)) {
                         if(message.endsWith(this.splitChar)) {
-                            this.incompleteMessage = this.incompleteMessage + message.slice(1, message.length-2)
+                            this.incompleteMessage = this.incompleteMessage + message.slice(1, message.length-1)
                             let newMessage = new Message(this.placeHolderMessage.getFormattedText() + "&6&l.")
                             this.placeHolderMessage.edit(newMessage)
                             this.placeHolderMessage = newMessage
                             return
                         }
                         else {
-                            message = this.incompleteMessage + message.slice(1, message.length-1)
+                            message = this.incompleteMessage + message.slice(1)
                             this.incompleteMessage = ""
                             ChatLib.deleteChat(this.placeHolderMessage)
                             this.placeHolderMessage = undefined
                         }
                     }
                     else if(message.endsWith(this.splitChar)) {
-                        this.incompleteMessage = message.slice(0, message.length-2)
+                        this.incompleteMessage = message.slice(0, message.length-1)
                         this.placeHolderMessage = new Message(`${settings.newName} ${settings.botName} &6&lLoading Msg`)
                         ChatLib.chat(this.placeHolderMessage)
                         return
