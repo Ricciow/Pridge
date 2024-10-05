@@ -1,5 +1,5 @@
 {
-    "version": "0.1.1",
+    "version": "0.1.2",
     "example": [
         {
             "type":"regex",
@@ -414,11 +414,6 @@
             "finalFormat":"&c&lNo username provided.\n &7This command only works in-game (for non-staff members)."
         },
         {
-            "type":"special",
-            "trigger":"^(.+): (.+)$",
-            "functionName":"discord"
-        },
-        {
             "type":"regex",
             "trigger":"^Booped (.+)!$",
             "finalFormat":"&d&lBooped &e${1}&f!",
@@ -429,6 +424,21 @@
             "trigger":"^Thanks for the boop, (.+)!$",
             "finalFormat":"&fThanks for the &d&lBoop&f, &e${1}&f!",
             "groupFormating":{}
+        }, {
+            "type":"regex",
+            "trigger":"Spooked (.+)! >:\\)",
+            "finalFormat":"&6&lSpooked &e${1}&6! &c&l>:)",
+            "groupFormatting":{}
+        }, {
+            "type":"regex",
+            "trigger":"AAH! You scared me, (.+)!",
+            "finalFormat":"&c&lAAH! &fYou scared me, &e${1}&f!",
+            "groupFormatting":{}
+        },
+        {
+            "type":"special",
+            "trigger":"^(.+): (.+)$",
+            "functionName":"discord"
         }
     ]
 }
