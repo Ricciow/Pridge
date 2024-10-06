@@ -114,7 +114,8 @@
                         "Could not send a private message to that player.",
                         "You're booping too fast! Wait a while before trying again.",
                         "Can't message an offline player.",
-                        "Too many arguments!"
+                        "Too many arguments!",
+                        "You're scaring too often! Wait a while before trying again."
                     ],
             "finalFormat":"&c&l${msg}"
         },
