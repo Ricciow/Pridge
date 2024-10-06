@@ -25,7 +25,7 @@
 
 	[pridge.timestamps]
 		timestamps = true
-		timezone_offset = 0
+		timezone_offset = -3
 		12_hour_mode = false
 
 	[pridge."!_important_!"]
