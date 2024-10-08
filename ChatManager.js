@@ -89,7 +89,12 @@ export class ChatManager {
         checkForSounds(message)
         if(settings.guild) {
             cancel(event)
-            this._sendMessage(ChatLib.getChatMessage(event, true).replace("&2Guild >", settings.newName).replace(/&r$/, ""))
+            let message = ChatLib.getChatMessage(event, true)
+            ?.replace("&2Guild >", settings.newName)
+            .replace(/&r$/, "")
+            .replace(/&([a-fklmnorzZ0-9])/g, "§$1")
+            .replace(/\\n/g, "\n")
+            this._sendMessage(message)
         }
     }
 

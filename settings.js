@@ -77,7 +77,7 @@ class Settings {
         description: "The color for discord users it is a discord message",
         category: 'Pridge',
         subcategory: 'Discord',
-        options: ['Black', 'Dark Blue', 'Dark Green', 'Cyan', 'Dark Red', 'Purple', 'Orange', 'Light Gray', 'Dark Gray', 'Light Blue', 'Light Green', 'Bright Blue', "Light Red", "Pink", "Yellow", "White"]
+        options: ['§0Black', '§1Dark Blue', '§2Dark Green', '§3Cyan', '§4Dark Red', '§5Purple', '§6Orange', '§7Light Gray', '§8Dark Gray', '§9Light Blue', '§aLight Green', '§bBright Blue', "§cLight Red", "§dPink", "§eYellow", "§fWhite", "§zRainbow 1", "§ZRainbow 2"]
     })
     colorSelected = 14;
 
@@ -86,7 +86,7 @@ class Settings {
         description: "The color for discord messages",
         category: 'Pridge',
         subcategory: 'Discord',
-        options: ['Black', 'Dark Blue', 'Dark Green', 'Cyan', 'Dark Red', 'Purple', 'Orange', 'Light Gray', 'Dark Gray', 'Light Blue', 'Light Green', 'Bright Blue', "Light Red", "Pink", "Yellow", "White"]
+        options: ['§0Black', '§1Dark Blue', '§2Dark Green', '§3Cyan', '§4Dark Red', '§5Purple', '§6Orange', '§7Light Gray', '§8Dark Gray', '§9Light Blue', '§aLight Green', '§bBright Blue', "§cLight Red", "§dPink", "§eYellow", "§fWhite", "§zRainbow 1", "§ZRainbow 2"]
     })
     colorSelectedChat = 15;
 
