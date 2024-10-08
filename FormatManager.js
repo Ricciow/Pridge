@@ -1,6 +1,7 @@
-import { functions, jsonLink } from "./constants"
+import { jsonLink } from "./constants"
 import { replacePlaceholders } from "./functions"
 import settings from "./settings"
+import { specialFormat } from "./functions"
 
 export class FormatManager {
     constructor() {
@@ -96,7 +97,7 @@ export class FormatManager {
             const regex = new RegExp(format.trigger)
             let matcher = message.match(regex)
             if(matcher) {
-                return functions[format.functionName](message, matcher)
+                return specialFormat[format.functionName](message, matcher)
             }
         }
         catch(error) {

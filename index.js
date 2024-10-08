@@ -1,7 +1,7 @@
 ChatLib.chat("&5[&9&lBridge&5] &6&lLoading!");
 import settings from "./settings";
 import { ChatManager } from "./ChatManager";
-import { sounds } from "./functions";
+import { sounds } from "./constants";
 
 // * Main Command
 register("command", () => {
