@@ -70,7 +70,7 @@ function formatLinks(message, userName) {
             else {
                 result = new Message(Bot, ...mergeAlternating(message, links))
             }
-            return result
+            return result.replace(/\\n/g, "\n")
         }
     }
 }
@@ -211,7 +211,7 @@ export class specialFormat {
         checkForSounds(message)
         const linkMessage = formatLinks(message, user)
         if (linkMessage) return linkMessage
-        return `(bypass)${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: ${message}`;
+        return `(bypass)${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: ${message}`.replace(/\\n/g, "\n");
 
     }
 }
