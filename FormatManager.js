@@ -51,8 +51,7 @@ export class FormatManager {
             }
             if(result) {
                 if(settings.devMode) {
-                    console.log(message)
-                    console.log(JSON.stringify(format, null, 4))
+                    console.log(`[Pridge] Format Message:\n${message}\nFormat:\n${JSON.stringify(format, null, 4)}`)
                 }
                 return result
             }

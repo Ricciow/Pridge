@@ -98,8 +98,9 @@ export class ChatManager {
     }
 
     _formatMessage(message) {
-        // ? Maybe add a dev version later to see original message
-        let originalMsg = message 
+        if(settings.devMode) {
+            console.log(`[Pridge] Guild Message:\n${message}`)
+        }
         message = message.replace(/ <@.+>$/, "")
         message = this.formatManager.processFormat(message)
         this._sendBotMessage(message)
