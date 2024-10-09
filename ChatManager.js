@@ -91,7 +91,6 @@ export class ChatManager {
             cancel(event)
             let message = ChatLib.getChatMessage(event, true)
             ?.replace("&2Guild >", settings.newName)
-            .replace(/&r$/, "")
             .replace(/&([a-fklmnorzZ0-9])/g, "§$1")
             .replace(/\\n/g, "\n")
             this._sendMessage(message)

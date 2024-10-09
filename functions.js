@@ -51,6 +51,7 @@ function mergeAlternating(arr1, arr2) {
 
 function formatLinks(message, userName) {
     if (settings.enableSTuF) {
+        message = message.replace(/\\n/g, "\n")
         const Bot = `${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: `
         if (message.startsWith(" ")) message = message.slice(1)
         const firstLink = message.startsWith("[LINK]")
@@ -70,7 +71,7 @@ function formatLinks(message, userName) {
             else {
                 result = new Message(Bot, ...mergeAlternating(message, links))
             }
-            return result.replace(/\\n/g, "\n")
+            return result
         }
     }
 }
@@ -211,7 +212,7 @@ export class specialFormat {
         checkForSounds(message)
         const linkMessage = formatLinks(message, user)
         if (linkMessage) return linkMessage
-        return `(bypass)${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: ${message}`.replace(/\\n/g, "\n");
+        return `(bypass)${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: ${message}`?.replace(/\\n/g, "\n");
 
     }
 }
