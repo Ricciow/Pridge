@@ -15,10 +15,10 @@ export class ChatManager {
             if(settings.enabled) {
                 // * Bot message processing
                 if(this._checkIfUser(user)) {
-                    cancel(event)
                     // * Splice split messages
                     if(message.startsWith(this.splitChar)) {
                         if(message.endsWith(this.splitChar)) {
+                            cancel(event)
                             this.incompleteMessage = this.incompleteMessage + message.slice(1, message.length-1)
                             let newMessage = new Message(this.placeHolderMessage.getFormattedText() + "&6&l.")
                             this.placeHolderMessage.edit(newMessage)
@@ -30,19 +30,24 @@ export class ChatManager {
                             this.incompleteMessage = ""
                             ChatLib.deleteChat(this.placeHolderMessage)
                             this.placeHolderMessage = undefined
+                            // * Process Message
+                            this._formatMessage(message, event)
                         }
                     }
                     else if(message.endsWith(this.splitChar)) {
+                        cancel(event)
                         this.incompleteMessage = message.slice(0, message.length-1)
                         this.placeHolderMessage = new Message(`${settings.newName} ${settings.botName} &6&lLoading Msg`)
                         ChatLib.chat(this.placeHolderMessage)
                         return
                     }
                     else if(this.incompleteMessage != "") {
-                        this._sendBotMessage(`&c&lSomething went wrong...\n${this.incompleteMessage}`)
+                        this._replaceBotMessage(`&c&lSomething went wrong...\n${this.incompleteMessage}`, event)
                     }
-                    // * Process Message
-                    this._formatMessage(message)
+                    else {
+                        // * Process Message
+                        this._formatMessage(message, event)
+                    }
                 }
                 // * Player message processing
                 else {
@@ -56,26 +61,24 @@ export class ChatManager {
         register("chat", (user, action, event) => {
             if(settings.enabled) {
                 if(this._checkIfUser(user)) {
-                    cancel(event);
                     switch (action) {
                         case "joined":
-                            this._sendMessage(`${settings.newName} &6Bridge bot &ajoined hypixel.`);
+                            this._replaceMessage(`${settings.newName} &6Bridge bot &ajoined hypixel.`, event);
                             break;
                         case "left":
-                            this._sendMessage(`${settings.newName} &6Bridge bot &cleft hypixel.`);
+                            this._replaceMessage(`${settings.newName} &6Bridge bot &cleft hypixel.`, event);
                             break;
                     }
                 }
                 else {
                     if(settings.joinleave) {
                         if(!user.includes(" ")) {
-                            cancel(event)
                             switch (action) {
                                 case "joined":
-                                    this._sendMessage(ChatLib.getChatMessage(event, true).replace("&2Guild >", settings.newName).replace('joined', '&ajoined'))
+                                    this._replaceMessage(ChatLib.getChatMessage(event, true).replace("&2Guild >", settings.newName).replace('joined', '&ajoined'), event)
                                     break;
                                 case "left":
-                                    this._sendMessage(ChatLib.getChatMessage(event, true).replace("&2Guild >", settings.newName).replace('left', '&cleft'))
+                                    this._replaceMessage(ChatLib.getChatMessage(event, true).replace("&2Guild >", settings.newName).replace('left', '&cleft'), event)
                                     break;
                             }
                         }
@@ -88,22 +91,21 @@ export class ChatManager {
     _formatGuild(message, event) {
         checkForSounds(message)
         if(settings.guild) {
-            cancel(event)
             let message = ChatLib.getChatMessage(event, true)
             ?.replace("&2Guild >", settings.newName)
             .replace(/&([a-fklmnorzZ0-9])/g, "§$1")
             .replace(/\\n/g, "\n")
-            this._sendMessage(message)
+            this._replaceMessage(message, event)
         }
     }
 
-    _formatMessage(message) {
+    _formatMessage(message, event) {
         if(settings.devMode) {
             console.log(`[Pridge] Guild Message:\n${message}`)
         }
         message = message.replace(/ <@.+>$/, "")
         message = this.formatManager.processFormat(message)
-        this._sendBotMessage(message)
+        this._replaceBotMessage(message, event)
     }
 
     _removeRankTag(ign){
@@ -164,25 +166,35 @@ export class ChatManager {
         return new TextComponent(str).setHover("show_text", `&7Sent at &e${this._getTime(Date.now(), settings.timestamp12hour)}&7.`)
     }
     
-    _sendBotMessage(message) {
-        if(message?.startsWith("(bypass)")){
-            this._sendMessage(message.replace("(bypass)", ""))
-        }
-        else if(typeof message != 'string') {
-            ChatLib.chat(message)
+    _replaceMessage(message, event) {
+        if(typeof message == 'string') message = new Message(message)
+        if(event) {
+            event.message = message.getChatMessage()
+            style = new ExtensionChatTabStyle(message.getChatMessage().func_150256_b())
+            style.chatTabType = ChatTab.values()
         }
         else {
-            this._sendMessage(`${settings.newName} ${settings.botName} &f${message}`)
+            console.log(`No event was sent in ${message}`)
         }
     }
 
-    _sendMessage(message) {
-        // ? Instead of canceling and re-sending messages, maybe replace them?
-        if(settings.timestamp) {
-            ChatLib.chat(this._createTimestampMessage(message))
-            return
+    _replaceBotMessage(message, event) {
+        if(message?.startsWith("(bypass)")){
+            this._replaceMessage(message.replace("(bypass)", ""), event)
         }
-        ChatLib.chat(message)
+        else if(typeof message != 'string') {
+            this._replaceMessage(message, event)
+        }
+        else {
+            this._replaceMessage(`${settings.newName} ${settings.botName} &f${message}`, event)
+        }
+    }
+
+    _getMessage(message) {
+        if(settings.timestamp) {
+            return this._createTimestampMessage(message)
+        }
+        return new Message(message)
     }
 
 }
