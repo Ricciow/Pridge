@@ -107,7 +107,7 @@ export class ChatManager {
     }
 
     _removeRankTag(ign){
-        ign = ign.replace(/\[(VIP|MVP)\+*\]/, "");
+        ign = ign.replace(/\[(VIP|MVP)\+*\] /, "");
         return ign
     }
 
