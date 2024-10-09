@@ -170,8 +170,6 @@ export class ChatManager {
         if(typeof message == 'string') message = new Message(message)
         if(event) {
             event.message = message.getChatMessage()
-            style = new ExtensionChatTabStyle(message.getChatMessage().func_150256_b())
-            style.chatTabType = ChatTab.values()
         }
         else {
             console.log(`No event was sent in ${message}`)
