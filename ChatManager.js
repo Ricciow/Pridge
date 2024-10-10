@@ -169,7 +169,9 @@ export class ChatManager {
     _replaceMessage(message, event) {
         if(typeof message == 'string') message = new Message(message)
         if(event) {
-            event.message = message.getChatMessage()
+            newMsg = message.getChatMessage()
+            newMsg.func_150255_a(event.message.func_150256_b())
+            event.message = newMsg
         }
         else {
             console.log(`No event was sent in ${message}`)
