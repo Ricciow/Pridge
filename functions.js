@@ -76,6 +76,12 @@ function formatLinks(message, userName) {
     }
 }
 
+export function makeRegexFromArray(array, flags = "gi") {
+    return new RegExp(array.map((value) => {
+        return "(\\s|^)" + value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(\\s|$)";
+    }).join("|"), flags)
+}
+
 export class specialFormat {
 
     static contest1(message, matcher) {

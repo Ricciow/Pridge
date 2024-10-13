@@ -10,6 +10,7 @@ import {
     @SwitchProperty,
     @TextProperty,
     @Vigilant,
+    @ParagraphProperty
 } from 'Vigilance/index';
 
 // The only parameter that is required is the first, which should be the Module name.
@@ -129,6 +130,14 @@ class Settings {
         subcategory: 'Other',
     })
     joinleave = true;
+
+    @ParagraphProperty({
+        name: 'Word Filters',
+        description: "Words which messages containing them will not be displayed\nAdd them separated by ; so:\nWord1;Word2;Word3;Word4",
+        category: "Pridge",
+        subcategory: "Other",
+    })
+    wordFilter = "";
 
     @SwitchProperty({
         name: 'Sound Effects',

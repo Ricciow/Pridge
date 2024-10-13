@@ -9,6 +9,7 @@
 		auto_update_formatings_on_load = true
 		enable_link_formatting = true
 		"also_modify_join/leave_guild_messages" = true
+		word_filters = ""
 
 	[pridge.discord]
 		image_representation = "&a&l[Image]"

@@ -1,6 +1,6 @@
 import settings from "./settings";
 import { FormatManager } from "./FormatManager";
-import { checkForSounds } from "./functions";
+import { checkForSounds, makeRegexFromArray } from "./functions";
 
 export class ChatManager {
 
@@ -167,6 +167,12 @@ export class ChatManager {
     }
     
     _replaceMessage(message, event) {
+        if(settings.wordFilter != "") {
+            if(makeRegexFromArray(settings.wordFilter.split(";"), "g").test(ChatLib.removeFormatting(message))) {
+                cancel(event)
+                return
+            }
+        }
         if(typeof message == 'string') message = new Message(message)
         if(event) {
             newMsg = message.getChatMessage()
