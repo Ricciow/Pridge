@@ -122,49 +122,6 @@ export class ChatManager {
             return false;
         }
     }
-
-    _addZeroToTheLeft(number) {
-        if(number < 10) {
-            number = "0" + String(number)
-        }
-        return number
-    }
-    
-    _getTime(timestamp, hour12 = false) {
-        minute = 1000*60
-        hour = minute*60
-        day = hour*24
-        timestamp = timestamp-(Math.floor(timestamp/day)*day)
-        hours = (Math.floor(timestamp/hour))
-        timestamp = timestamp - hours*hour
-        minutes = Math.floor(timestamp/minute)
-        hours = hours + settings.timeOffset
-        if(hours < 0) {
-            hours = 24 + hours
-        }
-        if(hour12) {
-            if(hours > 12) {
-                hours = hours-12
-                return `${this._addZeroToTheLeft(hours)}:${this._addZeroToTheLeft(minutes)} PM`
-            }
-            else if(hours == 12){
-                return `${this._addZeroToTheLeft(hours)}:${this._addZeroToTheLeft(minutes)} PM`
-            }
-            else if(hours == 0) {
-                return `12:${this._addZeroToTheLeft(minutes)} AM`
-            }
-            else {
-                return `${this._addZeroToTheLeft(hours)}:${this._addZeroToTheLeft(minutes)} AM`
-            }
-        }
-        else {
-            return `${this._addZeroToTheLeft(hours)}:${this._addZeroToTheLeft(minutes)}`
-        }
-    }
-    
-    _createTimestampMessage(str) {
-        return new TextComponent(str).setHover("show_text", `&7Sent at &e${this._getTime(Date.now(), settings.timestamp12hour)}&7.`)
-    }
     
     _replaceMessage(message, event) {
         if(settings.wordFilter != "") {
@@ -192,22 +149,15 @@ export class ChatManager {
     }
 
     _replaceBotMessage(message, event) {
-        if(message?.startsWith("(bypass)")){
-            this._replaceMessage(message.replace("(bypass)", ""), event)
-        }
-        else if(typeof message != 'string') {
+        if(typeof message != 'string') {
             this._replaceMessage(message, event)
+        }
+        else if(message?.startsWith("(bypass)")){
+            this._replaceMessage(message.replace("(bypass)", ""), event)
         }
         else {
             this._replaceMessage(`${settings.newName} ${settings.botName} &f${message}`, event)
         }
-    }
-
-    _getMessage(message) {
-        if(settings.timestamp) {
-            return this._createTimestampMessage(message)
-        }
-        return new Message(message)
     }
 
 }

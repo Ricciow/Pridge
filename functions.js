@@ -218,7 +218,6 @@ export class specialFormat {
         checkForSounds(message)
         const linkMessage = formatLinks(message, userName)
         if (linkMessage) return linkMessage
-        return `(bypass)${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: ${message}`?.replace(/\\n/g, "\n");
-
+        return new Message(`${settings.newName} ${settings.discordName} ${COLORS[settings.colorSelected]}${userName}${COLORS[settings.colorSelectedChat]}: ${message}`?.replace(/\\n/g, "\n"));
     }
 }
