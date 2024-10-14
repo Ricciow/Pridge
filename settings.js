@@ -103,7 +103,7 @@ class Settings {
         name: 'Enable link formatting',
         description: 'Choose whether or not you want links to be formatted\nTo excerce your right to not see links!',
         category: 'Pridge',
-        subcategory: 'Other',
+        subcategory: 'Links',
     })
     enableSTuF = true;
     
@@ -111,7 +111,7 @@ class Settings {
         name: 'Link Representation',
         description: "The text for a link whenever it is sent",
         category: 'Pridge',
-        subcategory: 'Discord',
+        subcategory: 'Links',
     })
     linkName = '&a&l[Link]';
 
@@ -119,7 +119,7 @@ class Settings {
         name: 'Also modify normal guild messages',
         description: 'Makes it so normal guild messages also follow the chat formatting',
         category: 'Pridge',
-        subcategory: 'Other',
+        subcategory: 'Guild',
     })
     guild = true;
 
@@ -127,7 +127,7 @@ class Settings {
         name: 'Also modify join/leave guild messages',
         description: 'Makes it so normal guild join/leave messages also follow the chat formatting',
         category: 'Pridge',
-        subcategory: 'Other',
+        subcategory: 'Guild',
     })
     joinleave = true;
 
@@ -135,7 +135,7 @@ class Settings {
         name: 'Word Filters',
         description: "Words which messages containing them will not be displayed\nAdd them separated by ; so:\nWord1;Word2;Word3;Word4",
         category: "Pridge",
-        subcategory: "Other",
+        subcategory: "Filters",
     })
     wordFilter = "";
 
@@ -143,7 +143,7 @@ class Settings {
         name: 'Word Filter Placeholder',
         description: 'Leaves a message on where the hidden messsage should be',
         category: 'Pridge',
-        subcategory: 'Other',
+        subcategory: 'Filters',
     })
     wordFilterPlaceholder = true;
 
@@ -151,7 +151,7 @@ class Settings {
         name: 'Sound Effects',
         description: 'Sound Effects on *sound* /pridgesounds or /shridgesounds to see sound effects',
         category: 'Pridge',
-        subcategory: 'Other',
+        subcategory: 'Sounds',
     })
     funni = true;
 
@@ -159,41 +159,15 @@ class Settings {
         name: "Sounds Volume",
         description: "How loud the sound effects are",
         category: 'Pridge',
-        subcategory: "Other"
+        subcategory: "Sounds"
     })
     volume = 1;
-
-    @SwitchProperty({
-        name: 'Timestamps',
-        description: 'Turn on timestamps on pridge messages, just like patcher',
-        category: 'Pridge',
-        subcategory: 'Timestamps',
-    })
-    timestamp = true;
-
-    @SwitchProperty({
-        name: '12 Hour mode',
-        description: 'Timestamps will use the 12h AM/PM format',
-        category: 'Pridge',
-        subcategory: 'Timestamps',
-    })
-    timestamp12hour = false;
-
-    @SliderProperty({
-        name: "Timezone offset",
-        description: "How offset time is hourly",
-        category: 'Pridge',
-        subcategory: "Timestamps",
-        min: -12,
-        max: 12
-    })
-    timeOffset = 0;
 
     @SwitchProperty({
         name: 'Developer Mode',
         description: 'Just gives me some extra data that helps',
         category: 'Pridge',
-        subcategory: 'Other',
+        subcategory: 'Nerdy',
     })
     devMode = false;
 
@@ -201,14 +175,12 @@ class Settings {
         name: 'Auto update formatings on load',
         description: 'Update automatically the formatting once module loads',
         category: 'Pridge',
-        subcategory: 'Other',
+        subcategory: 'Nerdy',
     })
     autoUpdate = true;
 
     constructor() {
         this.initialize(this);
-        this.addDependency('12 Hour mode', 'Timestamps');
-        this.addDependency('Timezone offset', 'Timestamps');
         this.addDependency('Sounds Volume', 'Sound Effects');
     }
 }

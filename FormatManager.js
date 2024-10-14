@@ -24,7 +24,7 @@ export class FormatManager {
             ChatLib.chat("&a&lDone updating!")
         }
         catch(error) {
-            ChatLib.chat("&c&lError getting json data update Chattriggers.")
+            ChatLib.chat("&c&lError getting json data, update Chattriggers.")
         }
     }
 
