@@ -169,7 +169,14 @@ export class ChatManager {
     _replaceMessage(message, event) {
         if(settings.wordFilter != "") {
             if(makeRegexFromArray(settings.wordFilter.split(";"), "g").test(ChatLib.removeFormatting(message))) {
-                cancel(event)
+                if(settings.wordFilterPlaceholder) {
+                    newMsg = new Message(new TextComponent(`${settings.newName} &cThis message has been filtered.`).setHover("show_text", message)).getChatMessage()
+                    newMsg.func_150255_a(event.message.func_150256_b())
+                    event.message = newMsg
+                }
+                else {
+                    cancel(event)
+                }
                 return
             }
         }

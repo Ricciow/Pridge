@@ -140,6 +140,14 @@ class Settings {
     wordFilter = "";
 
     @SwitchProperty({
+        name: 'Word Filter Placeholder',
+        description: 'Leaves a message on where the hidden messsage should be',
+        category: 'Pridge',
+        subcategory: 'Other',
+    })
+    wordFilterPlaceholder = true;
+
+    @SwitchProperty({
         name: 'Sound Effects',
         description: 'Sound Effects on *sound* /pridgesounds or /shridgesounds to see sound effects',
         category: 'Pridge',
