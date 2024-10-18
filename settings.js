@@ -131,6 +131,14 @@ class Settings {
     })
     joinleave = true;
 
+    @SwitchProperty({
+        name: 'boop/boo messages',
+        description: 'Sends a Thanks for the Boop! or AAH! You scared me! message when you get booped/booed on guild chat',
+        category: 'Pridge',
+        subcategory: 'Guild',
+    })
+    guildBoop = false;
+
     @ParagraphProperty({
         name: 'Word Filters',
         description: "Words which messages containing them will not be displayed\nAdd them separated by ; so:\nWord1;Word2;Word3;Word4",

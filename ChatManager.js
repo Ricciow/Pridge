@@ -86,6 +86,17 @@ export class ChatManager {
                 }
             }
         }).setCriteria('Guild > ${user} ${action}.')
+
+        register("chat", (user, message, event) => {
+            if(settings.guildBoop) {
+                if(message == `Boop!`) {
+                    ChatLib.command(`gc Thanks for the Boop, ${this._removeRankTag(user)}!`)
+                }
+                else if(message == 'Boo!') {
+                    ChatLib.command(`gc AAH! You scared me, ${this._removeRankTag(user)}!`)
+                }
+            }
+        }).setCriteria("From ${user}: ${message}")
     }
 
     _formatGuild(message, event) {
@@ -101,7 +112,7 @@ export class ChatManager {
 
     _formatMessage(message, event) {
         if(settings.devMode) {
-            console.log(`[Pridge] Guild Message:\n${message}`)
+            console.log(`[Pridge] Bridge Message:\n${message}`)
         }
         message = message.replace(/ <@.+>$/, "")
         message = this.formatManager.processFormat(message)
