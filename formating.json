@@ -47,6 +47,12 @@
         },
         {
             "type":"regex",
+            "trigger":"^⚠ Usage: (.+) (.+)$",
+            "finalFormat":"&6&lCorrect syntax:\n &e_${1} ${2}",
+            "groupFormating": {}
+        },
+        {
+            "type":"regex",
             "trigger":"⚠ (.+)",
             "finalFormat":"&c&l⚠ &c${1}",
             "groupFormating": {}
@@ -256,12 +262,6 @@
             "type":"string",
             "trigger":"Spam protection moment",
             "finalFormat":"&c&lNo spamming in here >:("
-        },
-        {
-            "type":"regex",
-            "trigger":"^Syntax: (.+) (.+)$",
-            "finalFormat":"&6&lCorrect synthax:\n &e_${1} ${2}",
-            "groupFormating": {}
         },
         {
             "type":"special",
