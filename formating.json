@@ -34,10 +34,21 @@
             "trigger":"I choose (.*)",
             "finalFormat":"&eI choose &f&l${1}",
             "groupFormating": {}
-        },{
+        },
+        {
+            "type":"string",
+            "trigger":"⚠ No permission",
+            "finalFormat":"&c&lUr not allowed to do that! >:("
+        },
+        {
+            "type":"string",
+            "trigger":"⚠ No username provided. This command only works in-game (for non-staff members).",
+            "finalFormat":"&c&l⚠ &cNo username provided.\n &7This command only works in-game (for non-staff members)."
+        },
+        {
             "type":"regex",
-            "trigger":"Error: (.+)",
-            "finalFormat":"&c&lError: ${1}",
+            "trigger":"⚠ (.+)",
+            "finalFormat":"&c&l⚠ &c${1}",
             "groupFormating": {}
         },
         {
@@ -400,20 +411,10 @@
             }
         },
         {
-            "type":"string",
-            "trigger":"No permission",
-            "finalFormat":"&c&lUr not allowed to do that! >:("
-        },
-        {
             "type":"regex",
             "trigger":"^Role is already up to date! Missing (.+) Fishing XP and (.+) Skyblock Levels for (.+).$",
             "finalFormat":"\n &a&lRole is already up to date!\n &6&l${3} - Missing\n &3&l${1} Fishing XP \n &e&l${2} Skyblock levels",
             "groupFormating":{}
-        },
-        {
-            "type":"string",
-            "trigger":"No username provided. This command only works in-game (for non-staff members).",
-            "finalFormat":"&c&lNo username provided.\n &7This command only works in-game (for non-staff members)."
         },
         {
             "type":"regex",
