@@ -10,7 +10,20 @@ export class FormatManager {
     }
 
     readFormats() {
-        const data = JSON.parse(FileLib.read("Pridge", "formating.json"))
+        var data
+        try {
+            if(settings.customFormats) {
+                data = JSON.parse(FileLib.read("Pridge", settings.formatingPath))
+                if(!data) throw "Format not found"
+            }
+            else {
+                data = JSON.parse(FileLib.read("Pridge", "formating.json"))
+            }
+        }
+        catch (error){
+            data = JSON.parse(FileLib.read("Pridge", "formating.json"))
+            ChatLib.chat(`&5[&9&lBridge&5] &4&lCouldnt load custom format. Switching to default.\n&c&lError:${error}`)
+        }
         this.formats = data.formats
         this.version = data.version
     }

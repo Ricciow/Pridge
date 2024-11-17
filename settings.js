@@ -187,9 +187,28 @@ class Settings {
     })
     autoUpdate = true;
 
+    @SwitchProperty({
+        name: 'Enable custom formats',
+        description: 'Allows you to use a custom format',
+        category: 'Pridge',
+        subcategory: 'Nerdy',
+    })
+    customFormats = false;
+
+    @TextProperty({
+        name: 'Custom format Path',
+        description: "The path the custom format is in from the mod file, i recomend leaving it in customFormating folder, do /loadpridgedata afterwards to activate it.",
+        category: 'Pridge',
+        subcategory: 'Nerdy',
+    })
+    formatingPath = 'customFormating/Example.json';
+
+    
+
     constructor() {
         this.initialize(this);
         this.addDependency('Sounds Volume', 'Sound Effects');
+        this.addDependency('Custom format Path', 'Enable custom formats');
     }
 }
 
