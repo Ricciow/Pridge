@@ -1,33 +1,5 @@
 {
     "version": "0.1.3",
-    "example": [
-        {
-            "type":"regex",
-            "trigger":"/regexhere(capturingGroup1) hehe (capturingGroup2)/",
-            "finalFormat":"&b&l${1} message ${2} whole message -> ${0}",
-            "groupFormating": { 
-                "1": {
-                    "baseStr":"&f&l${str}",
-                    "defaultStr":""
-                    }
-                }
-        },
-        {
-            "type":"string",
-            "trigger":"this is a message",
-            "finalFormat":"&b&l${msg}"
-        },
-        {
-            "type":"stringarray",
-            "trigger": ["message1", "message2", "message3"],
-            "finalFormat":"&c&l${msg}"
-        },
-        {
-            "type":"special",
-            "trigger": "discord message (this is a regex)",
-            "functionName": "discordFunc"
-        }
-    ],
     "formats":  [
         {
             "type":"regex",
