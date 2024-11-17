@@ -13,7 +13,7 @@ export class FormatManager {
         var data
         try {
             if(settings.customFormats) {
-                data = JSON.parse(FileLib.read("Pridge", settings.formatingPath))
+                data = JSON.parse(FileLib.read("Pridge", "customFormating/"+settings.formatingPath))
                 if(!data) throw "Format not found"
             }
             else {

@@ -197,11 +197,11 @@ class Settings {
 
     @TextProperty({
         name: 'Custom format Path',
-        description: "The path the custom format is in from the mod file, i recomend leaving it in customFormating folder, do /loadpridgedata afterwards to activate it.",
+        description: "The name of the custom format in the customFormating folder, do /loadpridgedata afterwards to reload the active format.",
         category: 'Pridge',
         subcategory: 'Nerdy',
     })
-    formatingPath = 'customFormating/Example.json';
+    formatingPath = 'Example.json';
 
     
 
