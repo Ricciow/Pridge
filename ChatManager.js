@@ -16,7 +16,7 @@ export class ChatManager {
                 // * Bot message processing
                 if(this._checkIfUser(user)) {
                     // * Splice split messages
-                    if(message.startsWith(this.splitChar)) {
+                    if(message.startsWith(this.splitChar) && this.incompleteMessage) {
                         if(message.endsWith(this.splitChar)) {
                             cancel(event)
                             this.incompleteMessage = this.incompleteMessage + message.slice(1, message.length-1)
