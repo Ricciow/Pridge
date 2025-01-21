@@ -42,7 +42,9 @@ export class ChatManager {
                         return
                     }
                     else if(this.incompleteMessage != "") {
-                        this._replaceBotMessage(`&c&lSomething went wrong...\n${this.incompleteMessage}`, event)
+                        ChatLib.chat(`&c&lSomething went wrong...\n${this.incompleteMessage}`)
+                        this._replaceBotMessage(message, event)
+                        this.incompleteMessage = ""
                     }
                     else {
                         // * Process Message
